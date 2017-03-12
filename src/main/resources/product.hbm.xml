@@ -1,0 +1,48 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+<hibernate-mapping>
+  
+<class name="com.portal.models.Product" table="PRODUCT">  
+
+<id name="id" type = "string">
+<column name = "ID" length = "255"/>  
+<generator class="assigned"/>  
+</id>  
+
+<property name = "name" type = "string">
+<column name = "NAME" length = "255"/>
+</property>
+
+<property name = "supplierid" type = "string">
+<column name = "SUPPLIERID" length = "255"/>
+</property>
+
+<property name = "categoryid" type = "string">
+<column name = "CATEGORYID" />
+</property>
+
+<property name = "description" type = "string">
+<column name = "DESCRIPTION" length = "255" />
+</property>
+
+<property name = "mrp" type = "string">
+<column name = "MRP" length = "255" />
+</property>
+
+<property name = "offerprice" type = "string">
+<column name = "OFFERPRICE" length = "255" />
+</property>
+  
+<property name = "quantity" type = "string">
+<column name = "QUANTITY" length = "255" />
+</property>
+
+<property name = "imagepath" type = "string">
+<column name = "IMAGEPATH" length = "255" />
+</property>
+
+</class>  
+</hibernate-mapping>  

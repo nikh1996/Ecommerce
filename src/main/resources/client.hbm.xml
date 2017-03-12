@@ -1,0 +1,78 @@
+<?xml version='1.0' encoding='UTF-8'?>  
+<!DOCTYPE hibernate-mapping PUBLIC  
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"  
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">  
+  
+<hibernate-mapping>
+  
+<class name="com.portal.models.Client" table="USER">  
+
+<id name="uname" type = "string">
+<column name = "UNAME" length = "255"/>  
+<generator class="assigned"/>  
+</id>  
+
+<property name="password" type = "string">
+<column name = "PASSWORD" length = "255" />
+</property>  
+          
+<property name = "firstname" type = "string">
+<column name = "FIRSTNAME" length = "255"/>
+</property>
+
+<property name = "lastname" type = "string">
+<column name = "LASTNAME" length = "255"/>
+</property>
+
+<property name = "enabled" type = "boolean">
+<column name = "ENABLED" />
+</property>
+
+
+<property name = "middlename" type = "string">
+<column name = "MIDDLENAME" length = "255" />
+</property>
+
+
+<property name = "sex" type = "string">
+<column name = "SEX" length = "255" />
+</property>
+
+<property name = "personalphone" type = "string">
+<column name = "PERSONALPHONE" length = "255" />
+</property>
+  
+  <property name = "addressline1" type = "string">
+<column name = "ADDRESSLINE1" length = "255" />
+</property>
+
+<property name = "addressline2" type = "string">
+<column name = "ADDRESSLINE2" length = "255" />
+</property>
+
+<property name = "state" type = "string">
+<column name = "STATE" length = "255" />
+</property>
+<property name = "emailid" type = "string">
+<column name = "EMAILID" length = "255" />
+</property>
+
+<property name = "workphone" type = "string">
+<column name = "WORKPHONE" length = "255" />
+</property>
+
+<property name = "cart" type = "string">
+<column name = "CART" length = "255" />
+</property>
+
+<property name = "cards" type = "string">
+<column name = "CARDS" length = "255" />
+</property>
+
+<property name = "admin" type = "boolean">
+<column name = "ADMIN" />
+</property>
+
+</class>  
+            
+</hibernate-mapping>  

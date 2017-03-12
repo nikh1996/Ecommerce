@@ -1,0 +1,31 @@
+        <flow xmlns="http://www.springframework.org/schema/webflow"  
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  
+        xsi:schemaLocation="http://www.springframework.org/schema/webflow http://www.springframework.org/schema/webflow/spring-webflow-2.0.xsd">  
+      
+        <var name="modelbind" class="com.portal.models.ViewData"/>
+        
+        <view-state id="checkout" view = "checkout.jsp" model="flowScope.modelbind">
+        <on-entry>
+        <evaluate expression="flow_action_helper.initializeMapModel()"  result="flowScope.model"/>
+        <evaluate expression="flow_action_helper.populateDataCheckoutPage(flow_action_helper.get_current_user(),flowScope.modelbind)" result="flowScope.modelbind" />
+        </on-entry>
+        <transition to="save_user" on="user_save_check_out" /> 
+          <transition to="redirect_landing" on="cancel_check_out" />
+        </view-state>  
+        
+        <action-state id = "save_user">
+        <evaluate expression="flow_action_helper.saveDataCheckoutPage(flow_action_helper.get_current_user(),flowScope.modelbind)"  />
+        <transition to="checkout_confirmed"></transition> 
+        </action-state>
+        
+    
+        <view-state id="checkout_confirmed" view = "checkout_confirmed.jsp" model="flowScope.modelbind">
+        <on-entry>
+        <evaluate expression="flow_action_helper.initializeMapModel()"  result="flowScope.model"/>
+        <evaluate expression="flow_action_helper.populateDataCheckoutConfirmedPage(flow_action_helper.get_current_user(),flowScope.modelbind)" result="flowScope.modelbind" />
+        </on-entry>
+        </view-state>
+      
+       <view-state id="redirect_landing" view = "externalRedirect:/Ecommerce/all_landing" />
+      
+</flow> 

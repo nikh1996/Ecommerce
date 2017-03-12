@@ -1,0 +1,46 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+    http://www.springframework.org/schema/context 
+    http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+
+    <bean id="class_config" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean" scope="singleton">
+		<property name="configLocation" value="hibernate.cfg.xml" />
+	</bean>
+
+	<bean id="clientDAOImpl" class="com.portal.daos.ClientDAOImpl" scope="singleton">
+		<property name="clientSessionFactory" ref="class_config" />
+	</bean>
+
+
+
+	<bean id="categoryDAOImpl" class="com.portal.daos.CategoryDAOImpl" scope="singleton">
+		<property name="categorySessionFactory" ref="class_config" />
+	</bean>
+	
+
+	<bean id="productDAOImpl" class="com.portal.daos.ProductDAOImpl" scope="singleton">
+		<property name="productSessionFactory" ref="class_config" />
+	</bean>
+
+
+	<bean id="supplierDAOImpl" class="com.portal.daos.SupplierDAOImpl" scope="singleton">
+		<property name="supplierSessionFactory" ref="class_config" />
+	</bean>
+	
+	<bean id="cartDAOImpl" class="com.portal.daos.CartDAOImpl" scope="singleton">
+		<property name="cartSessionFactory" ref="class_config" />
+	</bean>
+	
+	<bean id="formAction" class="org.springframework.webflow.action.FormAction">
+	<property name="formObjectName"><value>user</value></property>
+	<property name="formObjectClass"><value>com.portal.models.Client</value></property>
+
+	<property name="validator">
+		<bean class="com.niit.validator.AddressValidator"/>
+	</property>
+</bean>
+
+</beans>
